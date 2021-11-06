@@ -8,6 +8,8 @@ Basic script to help copying sd image to .img, Shrink it and burn it into anothe
 
 To install this tool on your Linux computer you need to run :
 
+``chmod +x install.sh``
+
 ``sudo ./install.sh``
 
 It wil download pishrink.sh from :
