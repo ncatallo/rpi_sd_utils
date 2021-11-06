@@ -2,7 +2,7 @@
 
 
 currentDate=$(date +'%Y-%m-%d')
-script=$0
+scriptName=$(basename "${0}")
 command=$1
 arg1=$2
 arg2=$3
