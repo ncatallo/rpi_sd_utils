@@ -12,15 +12,15 @@ copyCommand="--copy"
 burnCommand="--burn"
 
 
-if [ $command == $helpCommand ]; then
-	echo "Help command !"
+if [ $command == $helpCommand ]; then	
+
 	echo "Usage : "
 	echo -e "\t--help : Show the help of the script"
 	echo -e "\t--copy <device> <imgName> : Copy the device to an image of type (.img) using dd and pishrink"
 	echo -e "\t--burn <imgPath> <device> : Burn the specified image to the device using dd"
 
 elif [ $command == $copyCommand ]; then
-	echo "Copy command : ${arg1} ${arg2}"
+
 	if [ "$#" -ne 2 ]; then
 	    echo "Usage : ${scriptName} --copy <device> <imgName>" >&2
 	    exit 2
@@ -37,7 +37,7 @@ elif [ $command == $copyCommand ]; then
 	sudo pishrink.sh $imgName $shrinkImgName
 
 elif [ $command == $burnCommand ]; then
-	echo "Burn command ! ${arg1} ${arg2}"
+
 	if [ "$#" -ne 2 ]; then
 	    echo "Usage : ${scriptName} --burn <imgPath> <device>" >&2
 	    exit 2
@@ -48,6 +48,13 @@ elif [ $command == $burnCommand ]; then
 
 	echo "Copying ${imgName} to ${device}..."
 	eval "sudo dd if=${imgName} of=${device} bs=4M conv=fsync status=progress"
+
+else
+	
+	echo "Usage : "
+	echo -e "\t--help : Show the help of the script"
+	echo -e "\t--copy <device> <imgName> : Copy the device to an image of type (.img) using dd and pishrink"
+	echo -e "\t--burn <imgPath> <device> : Burn the specified image to the device using dd"
 
 fi
 
