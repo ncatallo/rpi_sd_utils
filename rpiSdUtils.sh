@@ -7,19 +7,11 @@ command=$1
 arg1=$2
 arg2=$3
 
-helpCommand="--help"
 copyCommand="--copy"
 burnCommand="--burn"
 
 
-if [ $command == $helpCommand ]; then	
-
-	echo "Usage : "
-	echo -e "\t--help : Show the help of the script"
-	echo -e "\t--copy <device> <imgName> : Copy the device to an image of type (.img) using dd and pishrink"
-	echo -e "\t--burn <imgPath> <device> : Burn the specified image to the device using dd"
-
-elif [ $command == $copyCommand ]; then
+if [ $command == $copyCommand ]; then
 
 	if [ "$#" -ne 2 ]; then
 	    echo "Usage : ${scriptName} --copy <device> <imgName>" >&2
